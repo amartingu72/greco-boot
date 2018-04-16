@@ -1,0 +1,31 @@
+server:
+  port: 4545
+
+spring.datasource.url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/greco?verifyServerCertificate=false&useSSL=false&requireSSL=false}
+spring.datasource.username: ${SPRING_DATASOURCE_USERNAME:greco}
+spring.datasource.password: ${SPRING_DATASOURCE_PASSWORD:greco}
+spring.datasource.driver-class-name: com.mysql.jdbc.Driver
+spring.jpa.hibernate.ddl-auto: none
+
+
+spring:
+  application:
+    name: grecoboot
+management:
+  security:  
+   enabled: false   
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+  endpoints:
+    jmx:
+      exposure:
+       include: '*'
+    web:
+     exposure:
+      include: '*'
+      base-path: /actuator
+    cors:
+      allowed-origins: true
+      enabled-by-default: false
