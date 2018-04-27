@@ -7,20 +7,19 @@ package com.alnura.greco.backend.entities;
 
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Setter;
+
 
 /**
  *
  * @author armena
  */
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
 public class Aloha implements Serializable{
 
     private static final long serialVersionUID = 98996283192432100L;

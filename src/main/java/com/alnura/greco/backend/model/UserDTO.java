@@ -2,13 +2,18 @@ package com.alnura.greco.backend.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Builder
+//Both constructors are needed if I want also a default constructor. 
+@NoArgsConstructor  
+@AllArgsConstructor
 @ApiModel(value="User", description="User model")
 public class UserDTO {
 	@ApiModelProperty(value = "User id", example="0", position=0)
@@ -21,4 +26,6 @@ public class UserDTO {
 	private String mydata;
 	@ApiModelProperty(value = "Are adds welcomed?", position=4)
 	private boolean adds;
+	
+	
 }
