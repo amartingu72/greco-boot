@@ -101,40 +101,7 @@
 		</dependency>
         <!-- End web services dependencies-->
 
-		<!-- Arreglo para xjc -->
-		<dependency>
-			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>codemodel</artifactId>
-			<version>2.2.11</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>txw2</artifactId>
-			<version>2.2.11</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xsom</groupId>
-			<artifactId>xsom</artifactId>
-			<version>20140925</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.istack</groupId>
-			<version>2.21</version>
-			<artifactId>istack-commons-runtime</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.bind.external</groupId>
-			<artifactId>rngom</artifactId>
-			<version>2.2.11</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.sun.codemodel/codemodel -->
-<dependency>
-    <groupId>com.sun.codemodel</groupId>
-    <artifactId>codemodel</artifactId>
-    <version>2.6</version>
-</dependency>
 		
-		<!-- Fin Arreglo para xjc -->
     </dependencies>
 	
 	<build>
@@ -169,15 +136,14 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
-				 <version>2.3.1</version>
+				
 				<configuration>
 					<packageName>com.alnura.greco.backend.model</packageName>
 					<clearOutputDir>false</clearOutputDir>
 					<sources>
      					<source>${project.basedir}/src/main/resources/users.xsd</source>
  					</sources>
-				</configuration>
-				
+				</configuration>				
 				<executions>
 					<execution>
 						<id>xjc</id>
@@ -185,8 +151,7 @@
 							<goal>xjc</goal>
 						</goals>
 					</execution>
-				</executions>
-				
+				</executions>				
 			</plugin>
 		</plugins>
 		
