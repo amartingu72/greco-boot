@@ -9,7 +9,7 @@ import javax.xml.bind.Unmarshaller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -30,6 +30,8 @@ public class UsersEndpoint {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UsersEndpoint.class);
 	
+	@Value("${security.enabled}")
+	private boolean securityEnabled;
 	
 	@PostConstruct
 	public void onload() {
@@ -46,9 +48,10 @@ public class UsersEndpoint {
 	public GetUserResponse getUserRequest(@RequestPayload GetUserRequest request,
 			@SoapHeader("{" + AuthenticationSOAPHeader.AUTH_NS + "}authentication") SoapHeaderElement auth) {
 		
-		AuthenticationSOAPHeader authentication = getAuthentication(auth);
-		logger.info("Usuario {}, password {}", authentication.getUsername(), authentication.getPassword());
-		
+		if ( securityEnabled ) {
+			AuthenticationSOAPHeader authentication = getAuthentication(auth);
+			logger.info("Usuario {}, password {}", authentication.getUsername(), authentication.getPassword());
+		}
 		GetUserResponse response = new GetUserResponse();
 		
 		UserDTO userDTO=usersService.findById(request.getId());

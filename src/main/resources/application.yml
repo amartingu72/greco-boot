@@ -1,6 +1,9 @@
 server:
   port: 4545
 
+security:
+  enabled: true
+
 logging.level:
   com.alnura.greco.backend: info
   org.springframework.ws.server.MessageTracing: TRACE

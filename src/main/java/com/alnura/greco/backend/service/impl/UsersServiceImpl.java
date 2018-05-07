@@ -94,7 +94,7 @@ public class UsersServiceImpl implements UsersService{
 		Optional<User> userOpt=this.usersDao.findById(userId);
 		List<CommunityDTO> dtoCommunities=null;
 		List<Community> communities=userOpt.get().getCommunities();
-		if ( userOpt.isPresent() ) { 
+		if ( (communities != null ) { 
 			dtoCommunities=(communities)
 						.stream()
 						.map(c -> CommunityDTO.builder()

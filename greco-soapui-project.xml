@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="e81ccbc4-4765-4d60-92f5-339b990f4477" activeEnvironment="Default" name="greco" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="53059cc3-270e-4ba1-b87d-9ac29947a134" wsaVersion="NONE" name="UsersPortSoap11" type="wsdl" bindingName="{http://alnura.es}UsersPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:4545/ws/users.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:4545/ws/users.wsdl"><con:part><con:url>http://localhost:4545/ws/users.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://alnura.es" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://alnura.es" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://alnura.es">
+<con:soapui-project id="e81ccbc4-4765-4d60-92f5-339b990f4477" activeEnvironment="Default" name="greco" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="53059cc3-270e-4ba1-b87d-9ac29947a134" wsaVersion="NONE" name="UsersPortSoap11" type="wsdl" bindingName="{http://alnura.es}UsersPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:4545/ws/users.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:4545/ws/users.wsdl"><con:part><con:url>http://localhost:4545/ws/users.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://alnura.es" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://alnura.es" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://alnura.es">
   <wsdl:types>
     <xs:schema elementFormDefault="qualified" targetNamespace="http://alnura.es" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="getUserRequest">
@@ -66,11 +66,29 @@
       <soap:address location="http://localhost:4545/ws"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:4545/ws</con:endpoint></con:endpoints><con:operation id="5fb7abe6-1854-41d0-9c2a-60e90687e33d" isOneWay="false" action="" name="getUser" bindingOperationName="getUser" type="Request-Response" outputName="getUserResponse" inputName="getUserRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f63d95a7-d038-4da4-8b05-42d5688b506a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4545/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aln="http://alnura.es">\r
-   <soapenv:Header/>\r
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://alnura-boot.us-east-2.elasticbeanstalk.com/ws</con:endpoint><con:endpoint>http://localhost:4545/ws</con:endpoint></con:endpoints><con:operation id="5fb7abe6-1854-41d0-9c2a-60e90687e33d" isOneWay="false" action="" name="getUser" bindingOperationName="getUser" type="Request-Response" outputName="getUserResponse" inputName="getUserRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f63d95a7-d038-4da4-8b05-42d5688b506a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4545/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aln="http://alnura.es">\r
+   <soapenv:Header>
+      <auth:authentication xmlns:auth="http://alnura.es/security">
+         <auth:username>username</auth:username>
+         <auth:password>password</auth:password>
+      </auth:authentication>
+   </soapenv:Header>
    <soapenv:Body>\r
       <aln:getUserRequest>\r
          <aln:id>1</aln:id>\r
       </aln:getUserRequest>\r
    </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://alnura.es/UsersPort/getUserRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="d63310a3-df3d-4e39-9570-f4f6b3f220a3" name="Trest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4545/ws</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:aln="http://alnura.es" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">   
+<soapenv:Header>      
+	<auth:authentication xmlns:auth="http://alnura.es/security">         
+		<auth:username>username</auth:username>         
+		<auth:password>password</auth:password>      
+	</auth:authentication>   
+</soapenv:Header>   
+<soapenv:Body>      
+	<aln:getUserRequest>         
+		<aln:id>1</aln:id>      
+	</aln:getUserRequest>   
+</soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://alnura.es/UsersPort/getUserRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
