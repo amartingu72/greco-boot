@@ -134,7 +134,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
-				 <version>2.3.1</version>
+				 <version>2.3</version>
 				<configuration>
 					<packageName>com.alnura.greco.backend.model</packageName>
 					<clearOutputDir>false</clearOutputDir>
