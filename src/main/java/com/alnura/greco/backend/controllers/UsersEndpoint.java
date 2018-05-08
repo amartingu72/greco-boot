@@ -58,20 +58,22 @@ public class UsersEndpoint {
 		response.setAdds(userDTO.isAdds());
 		response.setId(userDTO.getId());
 		response.setMydata(userDTO.getMydata());
+		response.setNickname(userDTO.getNickname());
 		response.setMail(userDTO.getEmail());
 	
 		List<Community> communities= response.getCommunities();
 		
 		List<CommunityDTO> communitiesDTO =usersService.getCommunities(request.getId());
-		Community community=null;
-		for (CommunityDTO communityDTO:communitiesDTO ) {
-			community=new Community();
-			community.setId(communityDTO.getId());
-			community.setName(communityDTO.getName());
-			community.setZipcode(communityDTO.getZipcode());
-			communities.add(community);
+		if ( communitiesDTO != null ) {
+			Community community=null;
+			for (CommunityDTO communityDTO:communitiesDTO ) {
+				community=new Community();
+				community.setId(communityDTO.getId());
+				community.setName(communityDTO.getName());
+				community.setZipcode(communityDTO.getZipcode());
+				communities.add(community);
+			}
 		}
-		
 		return response;
 	}
 	

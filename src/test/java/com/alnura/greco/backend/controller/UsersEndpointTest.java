@@ -22,7 +22,7 @@ import org.springframework.xml.transform.StringSource;
 import javax.xml.transform.Source;
 
 import static org.springframework.ws.test.server.RequestCreators.withPayload;
-import static org.springframework.ws.test.server.RequestCreators.withSoapEnvelope;
+//import static org.springframework.ws.test.server.RequestCreators.withSoapEnvelope;
 import static org.springframework.ws.test.server.ResponseMatchers.*;
 
 import com.alnura.greco.backend.app.Application;
@@ -75,9 +75,10 @@ public class UsersEndpointTest {
         		"   <ns2:getUserResponse xmlns:ns2=\"http://alnura.es\">"+
         		"      <ns2:id>1</ns2:id>"+
         		"      <ns2:mail>alberto.martin@alnura.es</ns2:mail>"+
-        		"      <ns2:mydata>Mis dato</ns2:adds>"+
+        		"      <ns2:mydata>Mis dato</ns2:mydata>"+
         		"      <ns2:adds>true</ns2:adds>"+
-        		"      <ns2:communities/>"+
+        		"      <ns2:nickname>alberto</ns2:nickname>"+
+        		//"      <ns2:communities/>"+
         		"      </ns2:getUserResponse>");
   
         mockClient
