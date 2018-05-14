@@ -1,5 +1,5 @@
 pipeline { 
-    agent java-mvn  
+    agent { label 'java-mvn' }  
     stages { 
         stage('Build') { 
             steps { 
