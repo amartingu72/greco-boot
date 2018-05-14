@@ -5,7 +5,7 @@
 
     <groupId>com.alnura.greco</groupId>
     <artifactId>greco-boot</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>greco-boot</name>
